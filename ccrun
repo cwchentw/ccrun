@@ -27,7 +27,7 @@ help () {
     printf "\tversion\t\tShow version info and exit\n";
     printf "\tlicense\t\tShow license info and exit\n";
     printf "\thelp\t\tShow help info and exit\n";
-    printf "\trun\tCompile and run an application (default)\n";
+    printf "\trun\t\tCompile and run an application (default)\n";
     printf "\n";
     printf "Environment variables:\n";
     printf "\tOUT_FILE\t\tThe name of output file\n";
