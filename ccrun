@@ -19,7 +19,7 @@ license () {
 
 #--------1---------2---------3---------4---------5---------6---------7---------8
 #2345678901234567890123456789012345678901234567890123456789012345678901234567890
-help () {
+help_info () {
     printf "Usage: %s [command] ...\n" "$program";
     printf "       %s help [command]\n" "$program";
     printf "\n";
@@ -43,27 +43,27 @@ help () {
 #--------1---------2---------3---------4---------5---------6---------7---------8
 
 help_version () {
-    echo "Usage: $program version"
-    echo ""
-    echo "Show version info and exit"
+    echo "Usage: $program version";
+    echo "";
+    echo "Show version info and exit";
 }
 
 help_license () {
-    echo "Usage: $program license"
-    echo ""
-    echo "Show license info and exit"
+    echo "Usage: $program license";
+    echo "";
+    echo "Show license info and exit";
 }
 
 help_help () {
-    echo "Usage: $program help [command]"
-    echo ""
-    echo "Show help info for [command] and exit"
+    echo "Usage: $program help [command]";
+    echo "";
+    echo "Show help info for [command] and exit";
 }
 
 help_run () {
-    echo "Usage: $program [run] main.m ..."
-    echo ""
-    echo "Run a C or C++ program"
+    echo "Usage: $program [run] main.m ...";
+    echo "";
+    echo "Run a C or C++ program";
 }
 
 check_ext () {
@@ -81,22 +81,23 @@ check_ext () {
         echo ".c"
         ;;
     *)
-        echo "Unsupported file: $1" >&2
-        echo $unsupported_file_extension
+        echo "Unsupported file: $1" >&2;
+        echo $unsupported_file_extension;
     esac
 }
 
 check_file_type () {
     case $1 in
     .c)
-        echo "c"
+        echo "c";
         ;;
     .cpp|.cxx|.cc)
-        echo "c++"
+        echo "c++";
         ;;
     *)
-        echo "Unknown file extension: $FILE_EXT" >&2
-        echo $unsupported_file_type
+        echo "Unknown file extension: $FILE_EXT" >&2;
+        echo $unsupported_file_type;
+        ;;
     esac
 }
 
@@ -112,7 +113,7 @@ if [ "$cmd" = "license" ]; then
 fi
 
 if [ "$cmd" = "help" ]; then
-    subcmd=$2
+    subcmd=$2;
 
     if [ "$subcmd" = "version" ]; then
         help_version;
@@ -123,9 +124,9 @@ if [ "$cmd" = "help" ]; then
     elif [ "$subcmd" = "run" ]; then
         help_run;
     elif [ "$subcmd" = "" ]; then
-        help;
+        help_info;
     else
-        echo "Unknown subcommand";
+        echo "Unknown subcommand: $2" >&2;
         exit 1;
     fi
 
@@ -153,8 +154,8 @@ if [ -z "$dest" ]; then
 fi
 
 if [ -f "$dest" ] || [ -d "$dest" ]; then
-    echo "File ${dest} exists in directory"
-    exit 1
+    echo "File ${dest} exists in directory";
+    exit 1;
 fi
 
 clean () {
@@ -176,9 +177,9 @@ if [ "$?" -ne 0 ]; then
 fi
 
 # Run the program.
-IS_CPP=0
-OBJS=
-IS_WRONG=0
+IS_CPP=0;
+OBJS="";
+IS_WRONG=0;
 for file in "$@"; do
   if [ "$file" = "--" ]; then
     break;
@@ -191,17 +192,17 @@ for file in "$@"; do
     continue;
   fi
 
-  filename=$(basename $file)
-  objname="${filename%$FILE_EXT}.o"
-  OBJS="$objname $OBJS"
+  filename=$(basename $file);
+  objname="${filename%$FILE_EXT}.o";
+  OBJS="$objname $OBJS";
 
-  FILE_TYPE=$(check_file_type $FILE_EXT | cat)
+  FILE_TYPE=$(check_file_type $FILE_EXT | cat);
 
   if [ "$FILE_TYPE" = "c" ]; then
-    $CC -c -o $objname $file $CFLAGS
+    $CC -c -o $objname $file $CFLAGS;
   elif [ "$FILE_TYPE" = "c++" ]; then
-    IS_CPP=1
-    $CXX -c -o $objname $file $CXXFLAGS
+    IS_CPP=1;
+    $CXX -c -o $objname $file $CXXFLAGS;
   fi
 done
 
@@ -210,9 +211,9 @@ if [ $IS_WRONG -ne 0 ]; then
 fi
 
 if [ $IS_CPP -eq 1 ]; then
-  LIBS_INTERNAL="-lstdc++"
+  LIBS_INTERNAL="-lstdc++";
 fi
-$CC -o $dest $OBJS $LIBS_INTERNAL $LIBS $CFLAGS $LDFLAGS
+$CC -o $dest $OBJS $LIBS_INTERNAL $LIBS $CFLAGS $LDFLAGS;
 
 args=
 is_arg=0
@@ -223,10 +224,10 @@ for arg in "$@"; do
   fi
 
   if [ $is_arg -eq 1 ]; then
-    args="$args $arg"
+    args="$args $arg";
   fi
 done
-LD_LIBRARY_PATH=$LD_LIBRARY_PATH ./$dest $args
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH ./$dest $args;
 
 if [ "$?" -ne 0 ]; then
   clean;
