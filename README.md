@@ -14,9 +14,11 @@ To address the issue, `ccrun` can automatically compile and execute C or C++ sou
 
 ## System Requirements
 
-`ccrun` itself is written in POSIX shell. Besides, you need a C or C++ compiler to compile and execute target source.
+`ccrun` itself is written in POSIX shell. Besides, you need a C or C++ compiler to compile target source.
 
-By default, `ccrun` will invoke `gcc` or `g++` for such task. You may change to another C or C++ compiler by setting related environment variables.
+By default, `ccrun` will invoke `gcc` or `g++` for compilation tasks. You may change to another C or C++ compiler by setting related environment variables.
+
+We tested `ccrun` on Ubuntu 18.04 LTS and Amazon Linux. The latter is largely RHEL and CentOS compatible. It should work on other Unix-like OSes as well.
 
 ## Supported File Formats
 
