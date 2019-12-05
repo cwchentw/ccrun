@@ -18,7 +18,7 @@ To address the issue, `ccrun` can automatically compile and execute C or C++ sou
 
 By default, `ccrun` will invoke `gcc` or `g++` for compilation tasks. You may change to another C or C++ compiler by setting related environment variables.
 
-We tested `ccrun` on several Unix or Unix-like systems:
+We tested `ccrun` against several Unix or Unix-like systems:
 
 * Ubuntu 18.04 LTS
 * Amazon Linux, largely RHEL or CentOS compatible
