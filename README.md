@@ -22,7 +22,7 @@ We tested `ccrun` on several Unix or Unix-like systems:
 
 * Ubuntu 18.04 LTS
 * Amazon Linux, largely RHEL or CentOS compatible
-* TrueOS, FreeBSD derived
+* TrueOS, FreeBSD compatible
 * Solaris
 
 It should work on other Unix or Unix-like systems as well.
