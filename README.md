@@ -4,7 +4,7 @@
 
 ## Warning
 
-`ccrun` will compile and execute target source. Hence, DON'T use `ccrun` to run untrusted source.
+`ccrun` will compile and execute target source. Hence, DON'T USE `ccrun` to run UNTRUSTED source.
 
 ## Why `ccrun`?
 
@@ -92,4 +92,4 @@ If you want to check code quality and conform some language standard for your C 
 
 ## Copyright
 
-Copyright 2019, Michael Chen; licensed under [MIT](https://opensource.org/licenses/MIT).
+Copyright (c) 2019 Michael Chen. Licensed under [MIT](https://opensource.org/licenses/MIT).
