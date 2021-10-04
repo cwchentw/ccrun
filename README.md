@@ -92,4 +92,4 @@ If you want to check code quality and conform some language standard for your C 
 
 ## Copyright
 
-Copyright (c) 2019 Michael Chen. Licensed under [MIT](https://opensource.org/licenses/MIT).
+Copyright (c) 2019 Michelle Chen. Licensed under [MIT](https://opensource.org/licenses/MIT).
