@@ -20,11 +20,10 @@ By default, `ccrun` will invoke `gcc` or `g++` for compilation tasks. You may ch
 
 We tested `ccrun` against several Unix or Unix-like systems:
 
-* Ubuntu 18.04 LTS
-* CentOS 8
-* openSUSE Leap 15.1
-* TrueOS, FreeBSD compatible
-* Solaris
+* Ubuntu 20.04 LTS
+* Rocky Linux 8.5
+* openSUSE Leap 15.3
+* FreeBSD 13.0
 
 It should work on other Unix or Unix-like systems as well.
 
